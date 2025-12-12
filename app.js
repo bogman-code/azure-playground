@@ -1,5 +1,12 @@
 const express = require("express");
 const app = express();
 
-app.get("/", (req, res) => res.send("Hello from Azure via GitHub Actions!"));
-app.listen(3000);
+const port = process.env.PORT || 3000;
+
+app.get("/", (req, res) => {
+  res.send("Hello from Azure CI/CD! Version 3 🚀");
+});
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
